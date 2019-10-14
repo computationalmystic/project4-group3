@@ -49,7 +49,7 @@
 	Implement UI that allows user to text and show up on screen, server for web, machine
 	learning to track comments
 	Student, TA should be allowed to comment on assignment pages
-## Adding/Removing courses, sections. Students
+## Adding/Removing courses, sections, students
 	Database to keep track of changes made, web UI and server, user authentication to make
 	sure that the changes made are from an appropriate user 
 
