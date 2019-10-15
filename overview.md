@@ -1,14 +1,14 @@
-##Steps to Integration:
+## Steps to Integration:
 
-#1. Build product road map and loose schedule for production, testing, and delivery
+# 1. Build product road map and loose schedule for production, testing, and delivery
 
-#2. Define acception criteria for beginning stages of application
+# 2. Define acception criteria for beginning stages of application
 
-#3. Verify accuracy of acception criteria with product owner
+# 3. Verify accuracy of acception criteria with product owner
 
-#4. Plan out sprints for code creation based on priority and dependencies
+# 4. Plan out sprints for code creation based on priority and dependencies
 
-#5. Create simple introductory functionality
+# 5. Create simple introductory functionality
 a. Create classes for user login profiles for teachers, students, TA's, and system admins
 Classes: 'student', 'teacher', 'ta', 'sysAdmin'
 
@@ -32,9 +32,9 @@ SysAdmin Methods: viewCourse(), login(), searchStudents(), searchTeachers(), sea
 
 g. Insert functionality to display mock data on pages created
 
-#6. Create system tests to test acception criteria
+# 6. Create system tests to test acception criteria
 
-#7. Move forward with next steps in rollout
+# 7. Move forward with next steps in rollout
 
 
 
