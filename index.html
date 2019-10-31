@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    
+<head>  
+</head>
+  
+<style>
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;} 
+</style>
+    
+<body>
+
+<h2>Repository Info: <br></h2>
+    <p> 
+        Select the repo-id to get more information: 
+        <select id="selection"> 
+             <option value=""> </option>
+             <option value="25152">25152</option>
+             <option value="20">20</option>
+             <option value="21">21</option>
+             <option value="22">22</option>
+             <option value="23">23</option>
+             <option value="24">24</option>
+             <option value="25151">25151</option>
+             <option value="2200">2200</option>
+             <option value="1">1</option>
+             <option value="25150">25150</option> 
+        </select> 
+    </p> 
+    
+     <p> 
+        The value of the option selected is: 
+        <span class="output"></span> 
+    </p> 
+      
+    <button onclick="getOption()"> 
+        Submit
+    </button> 
+    
+    <button onclick="displayDetails()">
+        Show Data
+    </button>
+    
+<!--
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Repo-ID</button>
+  <div id="myDropdown" class="dropdown-content">
+    
+  </div>
+</div> 
+-->
+
+<script>
+var repoData=[
+{
+    "repo_group_id":25152,
+    "rg_name":"MHS",
+    "rg_description":"Mission Hydro Sci",
+    "rg_website":"http:\/\/mhs.missouri.edu",
+    "rg_recache":0,
+    "rg_last_modified":"2019-10-14T10:50:57.000Z",
+    "rg_type":"Games for Learning",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-10-14T10:51:11.000Z"
+
+},
+{
+
+    "repo_group_id":20,
+    "rg_name":"Rails (wg-value)",
+    "rg_description":"Rails Ecosystem.",
+    "rg_website":"",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-03T15:55:20.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-05T13:36:25.000Z"
+
+},
+{
+
+    "repo_group_id":21,
+    "rg_name":"Comcast (wg-value)",
+    "rg_description":"Comcast Ecosystem.",
+    "rg_website":"",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-03T15:55:20.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-05T13:36:30.000Z"
+
+},
+{
+
+    "repo_group_id":22,
+    "rg_name":"GraphQL (wg-value)",
+    "rg_description":"GraphQL Ecosystem.",
+    "rg_website":"",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-03T15:55:20.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-05T13:36:33.000Z"
+
+},
+{
+
+    "repo_group_id":23,
+    "rg_name":"Netflix (wg-value)",
+    "rg_description":"Netflix Ecosystem.",
+    "rg_website":"",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-03T15:55:20.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-05T13:36:36.000Z"
+
+},
+{
+
+    "repo_group_id":24,
+    "rg_name":"Apache (wg-value)",
+    "rg_description":"Apache Ecosystem.",
+    "rg_website":"",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-03T15:55:20.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-05T13:36:40.000Z"
+
+},
+{
+
+    "repo_group_id":25151,
+    "rg_name":"Zephyr-RTOS",
+    "rg_description":"Zephyr Project GitHub Ecystem",
+    "rg_website":"https:\/\/www.zehpyrproject.org",
+    "rg_recache":0,
+    "rg_last_modified":"2019-08-26T16:14:41.000Z",
+    "rg_type":"GitHub Organization",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-08-26T11:14:44.000Z"
+
+},
+{
+
+    "repo_group_id":22000,
+    "rg_name":"Senaite",
+    "rg_description":"Senaite Laboratory information management system project",
+    "rg_website":"https:\/\/www.senaite.com",
+    "rg_recache":0,
+    "rg_last_modified":"2019-09-10T21:30:56.000Z",
+    "rg_type":null,
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":null
+
+},
+{
+
+    "repo_group_id":1,
+    "rg_name":"Default",
+    "rg_description":"Default repo group",
+    "rg_website":null,
+    "rg_recache":0,
+    "rg_last_modified":"2019-09-26T16:48:03.000Z",
+    "rg_type":"Default",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":null
+
+},
+{
+
+    "repo_group_id":25150,
+    "rg_name":"CHAOSS Risk Working Group",
+    "rg_description":"A small collection of repositories for the risk working group",
+    "rg_website":"NULL",
+    "rg_recache":0,
+    "rg_last_modified":"2019-06-12T13:46:39.000Z",
+    "rg_type":"CHAOSS",
+    "tool_source":"load",
+    "tool_version":"one",
+    "data_source":"git",
+    "data_collection_date":"2019-06-12T08:46:32.000Z"
+
+}];
+
+
+//function myFunction() {
+//  document.getElementById("myDropdown").classList.toggle("show");
+//}    
+//    
+//window.onclick = function(event) {
+//  if (!event.target.matches('.dropbtn')) {
+//    var dropdowns = document.getElementsByClassName("dropdown-content");
+//    var i;
+//    for (i = 0; i < dropdowns.length; i++) {
+//      var openDropdown = dropdowns[i];
+//      if (openDropdown.classList.contains('show')) {
+//        openDropdown.classList.remove('show');
+//      }
+//    }
+//  }
+//} 
+//
+////function selectRepo() {
+////    
+////}
+    
+    function getOption() { 
+        selectElement = document.querySelector('#selection'); 
+                   
+        output = selectElement.value; 
+  
+        document.querySelector('.output').textContent = output; 
+    } 
+    
+    function displayDetails(){
+        selectElement = document.querySelector('#selection');
+        
+        if(selectElement.value = repoData.repo_group_id){
+            for(var i;i<=11;i++){
+                output = repoData[i];
+                document.querySelector('.output').textContent = output;
+                console.log(repoData);
+            }
+        }
+        
+    }
+
+</script>
+</body>
+</html>
+
