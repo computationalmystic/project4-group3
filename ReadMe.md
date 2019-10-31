@@ -26,9 +26,9 @@ resulted in our code not being completed to the highest level of requirements.
 - Luckily by recreating our own file structure the project is very small so the instructions for use are as follows: 
 1. Download index.html file from github upload
 2. In local text editor compile the code and run locally
- a. if in visual studio use ng serve to begin using a local host server and the application will give you a link to the location
+ - if in visual studio use ng serve to begin using a local host server and the application will give you a link to the location
  you can see the code on
- b. if using another editor such as brackets, the code can launch a new application itself
+ - if using another editor such as brackets, the code can launch a new application itself
 3. Interact with the website by choosing a repo-id number you want more informaiton about and select submit
 4. You will then see the repo-id has been passed the the output variable in the code and is displayed on the screen.
 
